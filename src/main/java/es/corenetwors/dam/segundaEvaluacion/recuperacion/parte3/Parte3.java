@@ -1,4 +1,4 @@
-package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte1;
+package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3;
 
 import java.util.Scanner;
 

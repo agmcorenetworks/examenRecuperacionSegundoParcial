@@ -55,6 +55,7 @@ Crea el método manejadorErrores que recibe un número entero de error y que usa
 
 parte 2
 -------
+Crear el subpaquete es.corenetwors.dam.segundaEvaluacion.recuperacion.parte2, dentro de este crear la clase Parte2 de la siguiente forma:
 
 1- crear el método público y estático recorreArray para recorrer usando while el array de las constantes y obtener el número mayor del array, imprimirlo por consola, si este número es par mostrar el mensaje “el numero es par”
 
@@ -68,8 +69,7 @@ parte 2
 
 Parte 3
 -------
-
-Completar el código para que el programa funcione correctamente, de tal forma que se ejecute en bucle hasta que el usuario elija la opción de salir del programa
+En el subpaquete es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3, Completar el código de la clase Parte3 para que el programa funcione correctamente. De tal forma que se ejecute en bucle hasta que el usuario elija la opción de salir del programa
 
 Además se debe completar el método procesarEntrada usando un switch para que calcule a petición del usuario el área el perímetro o salga de la aplicación, para ello debe utilizar los métodos creados en la clase Utilidades calcularArea y calcularPerimetro, dando como opción por defecto el mensaje “opcion no valida”.
 
