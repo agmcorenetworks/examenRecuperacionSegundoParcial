@@ -3,7 +3,6 @@ package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3;
 import java.util.Scanner;
 
 import es.corenetwors.dam.segundaEvaluacion.recuperacion.excepciones.RadioNovalidoException;
-import es.corenetwors.dam.segundaEvaluacion.recuperacion.utiles.Utilidades;
 
 public class Parte3 {
 
@@ -62,6 +61,19 @@ public class Parte3 {
 		// o devovler -1 para salir 
 		//en otro caso mostrar "opcion no valida"
 		
+		switch (entrada) {
+			case 1 :
+				salida = es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.calculaPerimetro(radio);
+				break;
+			case 2 : 
+				salida = es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.calculaArea(radio);
+				break;
+			case 3 :
+				salida = -1;
+				break;
+			default : System.out.println("opcion no valida");
+		}
+		
 		return salida;
 
 	}
@@ -73,21 +85,19 @@ public class Parte3 {
 		
 		//cambiar el codigo añadiendo un bucle para que el programa termine cuando el usuario elija la opcion 3
 		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir de la aplicacion) 
-		
-			
+		while (true) {
 			radio=p3.pedirRadio();
 			p3.muestraMenu();
-			
 			int opcion = p3.obtenerentrada();
-			
 			try {
 				salida = p3.procesarEntrada(opcion, radio);
+				if (salida == -1) {
+					break;
+				}
 			} catch (RadioNovalidoException e) {
 				System.out.println(e.getMessage());
 			}
 			System.out.println(salida);
-			
-		
-
+		}
 	}
 }
