@@ -3,91 +3,126 @@ package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3;
 import java.util.Scanner;
 
 import es.corenetwors.dam.segundaEvaluacion.recuperacion.excepciones.RadioNovalidoException;
-import es.corenetwors.dam.segundaEvaluacion.recuperacion.utiles.Utilidades;
+import es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades;
+
 
 public class Parte3 {
+	public class Main {
+	    public void main(String[] args) {
+	        Parte3 p3 = new Parte3();
+	        double salida = 0;
+	        double radio;
 
-	Scanner sc = new Scanner(System.in);
-	public double radio;	
-	
-	public double pedirRadio() {
-		try {
-			System.out.println("\n\n\n");
-			System.out.println("Calculadora para Circulos");
-			System.out.println("=========================");
-			System.out.println("introduzca el radio:");
-			this.radio = Double.parseDouble(sc.nextLine());
-		} catch (Exception e) {
-			System.out.println("radio no valido");
-		}
+	        while (true) {
+	            radio = p3.pedirRadio();
+	            p3.muestraMenu();
 
-		return radio;
+	            int opcion = p3.obtenerEntrada();
+
+	            try {
+	                salida = p3.procesarEntrada(opcion, radio);
+	            } catch (RadioNovalidoException e) {
+	                System.out.println(e.getMessage());
+	            }
+
+	            if (salida == -1) {
+	                break;
+	            }
+
+	            System.out.println(salida);
+	        }
+	    }
 	}
 
-	public void muestraMenu() {
-		System.out.println("\n\n\n");
-		System.out.println("=============================================================================");
-		System.out.println("                                     MENU                                    ");
-		System.out.println("=============================================================================");
+    private Scanner sc;
+    private double radio;
 
-		System.out.println("Elija una opcion:");
+    public Parte3() {
+        sc = new Scanner(System.in);
+    }
 
-		System.out.println("1 - Calcular Perimetro");
-		System.out.println("2 - Calcular Area");
+    public double pedirRadio() {
+        try {
+            System.out.println("\n\n\n");
+            System.out.println("Calculadora para Círculos");
+            System.out.println("=========================");
+            System.out.println("Introduzca el radio:");
+            this.radio = Double.parseDouble(sc.nextLine());
+        } catch (Exception e) {
+            System.out.println("Radio no válido");
+        }
 
-		System.out.println("3 - Salir");
-		System.out.println("=============================================================================");
-	}
+        return radio;
+    }
 
-	public int obtenerentrada() {
-		int option = 0;
-		try {
-			option = Integer.parseInt(sc.nextLine());
-		} catch (Exception e) {
-			System.out.println("entrda no valida");
-		}
+    public void muestraMenu() {
+        System.out.println("\n\n\n");
+        System.out.println("=============================================================================");
+        System.out.println("                                     MENU                                    ");
+        System.out.println("=============================================================================");
 
-		System.out.println("Ha elegido " + option);
-		return option;
-	}
+        System.out.println("Elija una opción:");
+        System.out.println("1 - Calcular Perímetro");
+        System.out.println("2 - Calcular Área");
+        System.out.println("3 - Salir");
+        System.out.println("=============================================================================");
+    }
 
+    public int obtenerEntrada() {
+        int option = 0;
+        try {
+            option = Integer.parseInt(sc.nextLine());
+        } catch (Exception e) {
+            System.out.println("Entrada no válida");
+        }
 
+        System.out.println("Ha elegido " + option);
+        return option;
+    }
 
-	public double procesarEntrada(int entrada, double radio) throws RadioNovalidoException {
-		double salida = 0;
-		
-		//bloque switch
-		
-		//debe llamar a los metodos de utilidades para calcular el radio o el perimetro 
-		// o devovler -1 para salir 
-		//en otro caso mostrar "opcion no valida"
-		
-		return salida;
+    public double procesarEntrada(int entrada, double radio) throws RadioNovalidoException {
+        double salida = 0;
 
-	}
+        switch (entrada) {
+            case 1:
+                salida = Utilidades.calculaPerimetro(radio);
+                break;
+            case 2:
+                salida = Utilidades.calculaArea(radio);
+                break;
+            case 3:
+                salida = -1; // El usuario eligió salir de la aplicación
+                break;
+            default:
+                System.out.println("Opción no válida");
+                break;
+        }
 
-	public static void main(String[] args) {
-		Parte3 p3 = new Parte3();
-		double salida = 0;
-		double radio;
-		
-		//cambiar el codigo añadiendo un bucle para que el programa termine cuando el usuario elija la opcion 3
-		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir de la aplicacion) 
-		
-			
-			radio=p3.pedirRadio();
-			p3.muestraMenu();
-			
-			int opcion = p3.obtenerentrada();
-			
-			try {
-				salida = p3.procesarEntrada(opcion, radio);
-			} catch (RadioNovalidoException e) {
-				System.out.println(e.getMessage());
-			}
-			System.out.println(salida);
-			
-		
+        return salida;
+    }
 
-	}
+    public static void main(String[] args) {
+        Parte3 p3 = new Parte3();
+        double salida = 0;
+        double radio;
+
+        while (true) {
+            radio = p3.pedirRadio();
+            p3.muestraMenu();
+
+            int opcion = p3.obtenerEntrada();
+
+            try {
+                salida = p3.procesarEntrada(opcion, radio);
+            } catch (RadioNovalidoException e) {
+                System.out.println(e.getMessage());
+            }
+
+            if (salida == -1) {
+                break;
+            }
+
+            System.out.println(salida);
+        }
+    }
 }
