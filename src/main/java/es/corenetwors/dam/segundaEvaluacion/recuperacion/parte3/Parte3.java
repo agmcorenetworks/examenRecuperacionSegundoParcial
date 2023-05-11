@@ -8,7 +8,7 @@ import es.corenetwors.dam.segundaEvaluacion.recuperacion.utiles.Utilidades;
 public class Parte3 {
 
 	Scanner sc = new Scanner(System.in);
-	public double radio;	
+	public double radio;;
 	
 	public double pedirRadio() {
 		try {
