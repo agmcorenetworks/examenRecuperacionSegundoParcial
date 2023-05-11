@@ -3,13 +3,13 @@ package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3;
 import java.util.Scanner;
 
 import es.corenetwors.dam.segundaEvaluacion.recuperacion.excepciones.RadioNovalidoException;
-import es.corenetwors.dam.segundaEvaluacion.recuperacion.utiles.Utilidades;
+import es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Constantes;
 
 public class Parte3 {
 
 	Scanner sc = new Scanner(System.in);
-	public double radio;	
-	
+	public double radio;
+
 	public double pedirRadio() {
 		try {
 			System.out.println("\n\n\n");
@@ -51,17 +51,30 @@ public class Parte3 {
 		return option;
 	}
 
-
-
 	public double procesarEntrada(int entrada, double radio) throws RadioNovalidoException {
 		double salida = 0;
-		
-		//bloque switch
-		
-		//debe llamar a los metodos de utilidades para calcular el radio o el perimetro 
-		// o devovler -1 para salir 
-		//en otro caso mostrar "opcion no valida"
-		
+
+		// bloque switch
+
+		// debe llamar a los metodos de utilidades para calcular el radio o el perimetro
+		// o devovler -1 para salir
+		// en otro caso mostrar "opcion no valida"
+		switch (entrada) {
+		case 1:
+			return es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.caculaPerimetro(radio);
+			
+
+		case 2:
+			return es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.calculaArea(radio);
+			
+
+		case 3:
+			salida = -1;
+			break;
+		default:
+			System.out.println("Opcion no valida");
+		}
+
 		return salida;
 
 	}
@@ -70,24 +83,25 @@ public class Parte3 {
 		Parte3 p3 = new Parte3();
 		double salida = 0;
 		double radio;
-		
-		//cambiar el codigo añadiendo un bucle para que el programa termine cuando el usuario elija la opcion 3
-		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir de la aplicacion) 
-		
-			
-			radio=p3.pedirRadio();
-			p3.muestraMenu();
-			
-			int opcion = p3.obtenerentrada();
-			
-			try {
-				salida = p3.procesarEntrada(opcion, radio);
-			} catch (RadioNovalidoException e) {
-				System.out.println(e.getMessage());
-			}
-			System.out.println(salida);
-			
-		
+
+		// cambiar el codigo añadiendo un bucle para que el programa termine cuando el
+		// usuario elija la opcion 3
+		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir
+		// de la aplicacion)
+
+		do {
+		radio = p3.pedirRadio();
+		p3.muestraMenu();
+
+		int opcion = p3.obtenerentrada();
+
+		try {
+			salida = p3.procesarEntrada(opcion, radio);
+		} catch (RadioNovalidoException e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println(salida);
+		}while(salida != -1);
 
 	}
 }
