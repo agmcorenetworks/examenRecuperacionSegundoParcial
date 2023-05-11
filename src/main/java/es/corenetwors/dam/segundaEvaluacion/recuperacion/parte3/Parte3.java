@@ -8,8 +8,8 @@ import es.corenetwors.dam.segundaEvaluacion.recuperacion.utiles.Utilidades;
 public class Parte3 {
 
 	Scanner sc = new Scanner(System.in);
-	public double radio;;
-	
+	public double radio;
+
 	public double pedirRadio() {
 		try {
 			System.out.println("\n\n\n");
@@ -51,18 +51,30 @@ public class Parte3 {
 		return option;
 	}
 
-
-
 	public double procesarEntrada(int entrada, double radio) throws RadioNovalidoException {
 		double salida = 0;
 		
 		//bloque switch
 		
+		switch(entrada) {
+		
+		case 1: 
+			return es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.calculaArea(radio);
+			
+		case 2:
+			return es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades.calculaPerimetro(radio);
+		case 3:
+			salida = -1; 
+			
+		default:
+			System.out.println("Opcion no valida");
+		}
+		
 		//debe llamar a los metodos de utilidades para calcular el radio o el perimetro 
 		// o devovler -1 para salir 
 		//en otro caso mostrar "opcion no valida"
 		
-		return salida;
+		return salida; 
 
 	}
 
@@ -70,13 +82,17 @@ public class Parte3 {
 		Parte3 p3 = new Parte3();
 		double salida = 0;
 		double radio;
-		
-		//cambiar el codigo añadiendo un bucle para que el programa termine cuando el usuario elija la opcion 3
-		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir de la aplicacion) 
-		
+
+		// cambiar el codigo añadiendo un bucle para que el programa termine cuando el
+		// usuario elija la opcion 3
+		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir
+		// de la aplicacion)
+
+		while(salida != -1) {
 			
-			radio=p3.pedirRadio();
+			radio = p3.pedirRadio();
 			p3.muestraMenu();
+			
 			
 			int opcion = p3.obtenerentrada();
 			
@@ -86,8 +102,8 @@ public class Parte3 {
 				System.out.println(e.getMessage());
 			}
 			System.out.println(salida);
-			
-		
+		}
 
 	}
 }
+
