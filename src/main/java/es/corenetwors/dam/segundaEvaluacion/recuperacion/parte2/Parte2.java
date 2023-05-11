@@ -7,9 +7,9 @@ public class Parte2 {
 	// Método 1
     public static void recorreArray() {
         int[] numbers = Constantes.NUMBERS;
-        int mayor = numbers[0]; // Suponemos que el primer número del array es el mayor
+        int mayor = numbers[0]; 
 
-        int i = 1; // Empezamos desde el segundo elemento del array
+        int i = 1; 
         while (i < numbers.length) {
             if (numbers[i] > mayor) {
                 mayor = numbers[i];
@@ -27,10 +27,10 @@ public class Parte2 {
     public static void recorreArrayInverso() {
         int[] numbers = Constantes.NUMBERS;
         int sumaImpares = 0;
-        int i = numbers.length - 1; // Índice inicializado al final del array
+        int i = numbers.length - 1; 
 
         do {
-            if (i % 2 != 0) { // Si la posición es impar
+            if (i % 2 != 0) { 
                 sumaImpares += numbers[i];
             }
             i--;

@@ -27,7 +27,7 @@ public class Parte1 {
     
     public void capturarExcepcion() {
         try {
-            lanzarExcepcion(55); // Llamada al método lanzarExcepcion con un número específico
+            lanzarExcepcion(55); 
         } catch (MayorQueException e) {
             System.out.println(e.getMessage());
         } catch (MenorQueException e) {
