@@ -1,5 +1,6 @@
 package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte3;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import es.corenetwors.dam.segundaEvaluacion.recuperacion.excepciones.RadioNovalidoException;
@@ -8,8 +9,8 @@ import es.corenetwors.dam.segundaEvaluacion.recuperacion.utilidades.Utilidades;
 public class Parte3 {
 
 	Scanner sc = new Scanner(System.in);
-	public double radio;	
-	
+	public double radio;
+
 	public double pedirRadio() {
 		try {
 			System.out.println("\n\n\n");
@@ -51,12 +52,10 @@ public class Parte3 {
 		return option;
 	}
 
-
-
 	public double procesarEntrada(int entrada, double radio) throws RadioNovalidoException {
 		double salida = 0;
-		
-		switch(entrada) {
+
+		switch (entrada) {
 		case 1:
 			salida = Utilidades.calculaPerimetro(radio);
 			break;
@@ -68,8 +67,8 @@ public class Parte3 {
 			break;
 		default:
 			System.out.println("opcion no valida");
-	}
-		
+		}
+
 		return salida;
 
 	}
@@ -78,28 +77,33 @@ public class Parte3 {
 		Parte3 p3 = new Parte3();
 		double salida = 0;
 		double radio;
+
+		// cambiar el codigo añadiendo un bucle para que el programa termine cuando el
+		// usuario elija la opcion 3
+		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir
+		// de la aplicacion)
+
+		int opcion;
+		do {
+			radio = p3.pedirRadio();
+			p3.muestraMenu();
+
+			opcion = p3.obtenerentrada();
+
+			try {
+				salida = p3.procesarEntrada(opcion, radio);
+			} catch (RadioNovalidoException e) {
+				System.out.println(e.getMessage());
+			}
+			if (salida != -1)
+				System.out.println(salida);
+		} while (opcion != 3);
 		
-		//cambiar el codigo añadiendo un bucle para que el programa termine cuando el usuario elija la opcion 3
-		// para salir del bucle procesarEntrada debe devolver -1 (el usuario elige salir de la aplicacion) 
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("hola");
+		arr.add("chao");
 		
-			
-			int opcion;
-			do {
-				radio=p3.pedirRadio();
-				p3.muestraMenu();
-				
-				opcion = p3.obtenerentrada();
-				
-				try {
-					salida = p3.procesarEntrada(opcion, radio);
-				} catch (RadioNovalidoException e) {
-					System.out.println(e.getMessage());
-				}
-				if (salida != -1)
-					System.out.println(salida);
-			} while (opcion != 3);
-			
-		
+		arr.stream().forEach(s -> System.out.println(s));
 
 	}
 }
