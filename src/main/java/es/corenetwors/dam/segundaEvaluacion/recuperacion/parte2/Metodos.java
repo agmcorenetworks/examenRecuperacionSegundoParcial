@@ -1,8 +1,11 @@
 package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte2;
 
 public class Metodos {
+	
+	//este array te lo has sacado de la manga, hay que usar el de las constantes
     private static final int[] array = {5, 10, 20, 15, 25, 30};
 
+    //usa el array que no es
     public static void recorreArray() {
         int mayor = Integer.MIN_VALUE;
         int i = 0;
@@ -18,6 +21,7 @@ public class Metodos {
         }
     }
 
+  //usa el array que no es
     public static void recorreArrayInverso() {
         int suma = 0;
         int i = array.length - 1;

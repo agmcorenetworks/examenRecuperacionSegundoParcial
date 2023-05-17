@@ -119,6 +119,10 @@ public class Parte3 {
             }
 
             if (salida == -1) {
+            	
+            	//Normalmente para salir de un while no usamos break, 
+            	//se pone una variable con la condicion de salida a true o false y cuando se de la condicion de salida se cambia el valor de esa variable
+            	//de hecho eso no lo hemos hecho nunca en clase así.s
                 break;
             }
 

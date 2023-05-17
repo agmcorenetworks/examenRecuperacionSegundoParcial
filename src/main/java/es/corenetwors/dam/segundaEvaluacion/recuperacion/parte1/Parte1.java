@@ -2,6 +2,8 @@ package es.corenetwors.dam.segundaEvaluacion.recuperacion.parte1;
 import java.util.Scanner;
 
 public class Parte1 {
+	
+	//TODAS estas constantes no son necesarias hay que usar las de la clase Constantes. Para eso las hemos creado
     private static final String INTRO = "Bienvenido. Por favor, ingresa tu nombre:";
     private static final String SALUDO = "Hola, ";
     private static final String ERROR_DEFAULT = "Error desconocido";
